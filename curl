@@ -1,0 +1,12 @@
+postman request POST 'http://10.1.237.104:11434/api/chat' \
+  --header 'Content-Type: application/json' \
+  --body '{
+    "model": "qwen3-vl:8b-instruct-bf16",
+    "messages": [{
+    "role": "user",
+    "think":false,
+    "content": "/no_think You are an expert OCR assistant. Convert this document image into HTML code. The following strict rules MUST be followed: Extract the text exactly as it appears; do not correct spelling or abbreviations. For layout alignment (such as aligned colons '\'':'\''), use a <table> tag with border='\''0'\'' and without any background styling or border lines. For the signature block in the bottom-right corner, use <div style='\''float: right; text-align: center;'\''> or an appropriate margin-left. Do not center it in the middle of the page. Do not add global CSS such as text-indent to paragraphs. If a paragraph is indented, use an inline style like <p style='\''text-indent: 40px;'\''> ONLY for that specific paragraph. For numbered lists, use the <ol> tag if the formatting is clean, or simply use normal <p> tags with numbers if the format is irregular. Do not mix <ul> tags with manually written numbers.Do not add any comments or explanations. Only output the pure HTML.For any image or logo found in the document, replace it with:<img src='\'''\'' alt='\''[image]'\''/> Use an empty src attribute. Do NOT embed image data. Do NOT use base64.",
+    "images": [""]
+    }],
+    "stream": false
+}'
