@@ -1,0 +1,5 @@
+*.docx
+*.html
+*.json
+venv
+*pyc
